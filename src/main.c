@@ -4,13 +4,15 @@
 
 #include "main.h"
 
+typedef void (*funcs)(void);
+
 // String block util program init
 int main(int argc, char *argv[]) {
   switch (argc) {
     case 2:;
       #define ARG_COUNT 3
-      #define ARG_TYPES 3
-      char *args[ARG_COUNT][ARG_TYPES] = {
+      #define ARG_TYPES 2
+      const char *args[ARG_COUNT][ARG_TYPES] = {
         {
           "-h",
           "--help",
@@ -26,12 +28,13 @@ int main(int argc, char *argv[]) {
       };
 
       int i;
-      void (*arg_funcs[3])() = {help, find_blocks, select_blocks};
+      funcs arg_funcs[3] = {&help, &find_blocks, &select_blocks};
       for (i=0; i < ARG_COUNT; i++)
       {
+        // Each element in the args array has 2 keys, 0 and 1
         if (!strcmp( argv[1], args[i][0] ) || !strcmp( argv[1], args[i][1] ))
         {
-          (*arg_funcs[i])();
+          arg_funcs[i]();
         } 
       }
       
