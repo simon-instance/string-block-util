@@ -10,16 +10,15 @@ typedef void (*funcs)(void);
 int main(int argc, char *argv[]) {
   switch (argc) {
     case 2:;
+      help();
+      break;
+    case 3:;
       #define ARG_COUNT 3
       #define ARG_TYPES 2
       const char *args[ARG_COUNT][ARG_TYPES] = {
         {
-          "-h",
-          "--help",
-        },
-        {
-          "-f",
-          "--find-blocks",
+          "-l",
+          "--list-blocks",
         },
         {
           "-s",
@@ -37,7 +36,6 @@ int main(int argc, char *argv[]) {
           arg_funcs[i]();
         } 
       }
-      
       break;
     default:;
       info();
