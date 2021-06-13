@@ -13,6 +13,6 @@ void find_blocks() {
 }
 
 void select_blocks() {
-  printf("find_blocks test");
+  printf("select_blocks test");
 }
 

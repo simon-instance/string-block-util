@@ -8,7 +8,6 @@
 int main(int argc, char *argv[]) {
   switch (argc) {
     case 2:;
-
       #define ARG_COUNT 3
       #define ARG_TYPES 3
       char *args[ARG_COUNT][ARG_TYPES] = {
@@ -34,10 +33,6 @@ int main(int argc, char *argv[]) {
         {
           (*arg_funcs[i])();
         } 
-        else
-        {
-          info();
-        }
       }
       
       break;
